@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+</head>
+<body>
+    <script>
+        // 1 - Faça um Programa que peça as 4 notas bimestrais e mostre a média;
+        alert("1 - Informe as notas:")
+        let n1 = parseFloat(prompt("Nota do 1ºBim: "));
+        let n2 = parseFloat(prompt("Nota do 2ºBim: "));
+        let n3 = parseFloat(prompt("Nota do 3ºBim: "));
+        let n4 = parseFloat(prompt("Nota do 4ºBim: "));
+        let m = ((n1 + n2 + n3 + n4) / 4);
+        alert(`A média é: ${m}`)
+
+        // 2 - Faça um Programa que peça o raio de um círculo, calcule e mostre sua área;
+        let raio = parseFloat(prompt("2 - Informe o raio do círculo:"));
+        let area = 3.14*raio**2;
+        alert(`A área é de ${area}`);
+    
+        // 3 - Faça um Programa que peça a temperatura em graus Fahrenheit, transforme e mostre a temperatura em graus Celsius. C = 5 * ((F-32) / 9).
+        let celsius = parseFloat(prompt("3 - Informe a temperatura: "));
+        let fahr = 1.8*celsius+32;
+        alert(`${fahr}°F`);
+
+        // 4 - Faça um programa que calcule e mostre a area e o perímetro de uma sala retangular cujas medidas são fornecidas pelo usuário.
+        alert('4 - Informe as medidas da sala:')
+        let base = parseFloat(prompt("1º medida: "));
+        let altura = parseFloat(prompt("2º medida: "));
+        let area2 = base*altura
+        let per = 2*(base+altura)
+        alert(`A área da sala é de ${area2}m² e o perímetro de ${per}m`)
+
+        // 5 - Escreva um programa para ler as dimensões de uma cozinha retangular, em seguida calcular e escrever a quantidade de caixas de azulejos necessarias para cobrir o chão da cozinha. Cada caixa de azulejos possui 2,5 m2.
+        alert('5 - Informe as medidas da cozinha:')
+        let larg = parseFloat(prompt("1º medida: "));
+        let prof = parseFloat(prompt("2º medida: "));
+        let area3 = larg*prof
+        let azu = area3/2.5
+        alert(`A área da cozinha é de ${area3} m² e são nescessárias ${azu} caixas de azulejos para cobrir o chão`)
+        
+    </script>
+</body>
+</html>
