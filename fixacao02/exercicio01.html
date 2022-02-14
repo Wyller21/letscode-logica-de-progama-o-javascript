@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 2</h1>
+
+    <div>
+        <h2>Exercício 01</h2>
+        <p>Faça um programa que leia 2 números inteiros, calcule e exiba a média aritmética e o produto dos números. O seu programa deve, obrigatoriamente, utilizar as seguintes funções feitas por você:</p>
+        <p>calcula_media(): recebe 2 números inteiros como parâmetros e retorne a média dos números;</p>
+        <input type="number" name="txtn1" id="txtn1"> e
+        <input type="number" name="txtn2" id="txtn2">
+        <input class="button"  type="button" value="média" onclick="calcula_media()">
+        <span id="res">Resultado: </span>
+
+        <p>calcula_produto(): recebe 2 números inteiros como parâmetros e retorna o produto dos números;</p>
+        <input type="number" name="txtn3" id="txtn3"> X
+        <input type="number" name="txtn4" id="txtn4">
+        <input class="button"  type="button" value="multiplicar" onclick="calcula_produto()">
+        <span id="res2">Produto: </span>
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function calcula_media() {
+            let tn1 = document.getElementById('txtn1')
+            let tn2 = document.getElementById('txtn2')
+            let n1 = parseInt(tn1.value)
+            let n2 = parseInt(tn2.value)
+            let media = (n1 + n2) / 2
+            res.innerHTML = `A média entre ${n1} e ${n2} é igual a <strong>${media}</strong>`
+            }
+        function calcula_produto() {
+            let tn3 = document.getElementById('txtn3')
+            let tn4 = document.getElementById('txtn4')
+            let n3 = parseInt(tn3.value)
+            let n4 = parseInt(tn4.value)
+            let produto = n3 * n4
+            res2.innerHTML = `Produto = <strong>${produto}</strong>`
+            }
+</script>
+
+</body>
+</html>

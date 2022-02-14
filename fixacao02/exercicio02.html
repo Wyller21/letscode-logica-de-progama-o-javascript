@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 2</h1>
+    <div>
+        <h2>Exercício 02</h2>
+        <p>Faça um programa que calcule e imprima a média ponderada de um aluno. Inicialmente, o programa deverá ler o peso da primeira prova e o peso da segunda prova (ambos inteiros). A seguir, o programa deverá ler os seguintes dados do aluno: matrícula (inteiro), nota da primeira prova e nota da segunda prova (ambas reais). Por último, o programa deve mostrar a matricula do aluno seguida da sua média. O seu programa deve, obrigatoriamente, utilizar a seguinte função feita por você:</p>
+        <p>calcula_media_ponderada(): recebe 2 notas (reais) e seus respectivos pesos (inteiros) como parâmetros e retorna a média ponderada dos valores;</p>
+        <span>Matricula: </span>
+        <input type="number" name="matricula" id="matricula"><br>
+        <span>Nota Prova 1</span>
+        <input type="number" name="txnota1" id="txnota1"><br>
+        <span>Nota Prova 2</span>
+        <input type="number" name="txnota2" id="txnota2"><br>
+        <input class="button"  type="button" value="média" onclick="calcula_media_ponderada()"> <br>
+        <span id="media_pon">Nota Final:</span>
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+    
+    <script>
+        function calcula_media_ponderada() {
+            let peso1 = 4
+            let peso2 = 6
+            let aluno = document.getElementById('matricula').value
+            let tnota1 = document.getElementById('txnota1')
+            let tnota2 = document.getElementById('txnota2')
+            let nota1 = parseFloat(tnota1.value)
+            let nota2 = parseFloat(tnota2.value)
+            let mediapon = parseFloat(nota1*peso1 + nota2*peso2) / (peso1+peso2)
+            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${mediapon.toFixed(1)}</strong>`
+            }
+    </script>
+</body>
+</html>

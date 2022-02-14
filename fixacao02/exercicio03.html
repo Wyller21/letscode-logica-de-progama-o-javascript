@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 2</h1>
+    <div>
+        <h2>Exercício 03</h2>
+        <p>Altere o programa do exercício 2 para que ele utilize a função calcula_produto do exercício 1 no cálculo da média ponderada;</p>
+        <span>Matricula: </span>
+        <input type="number" name="matricula" id="matricula"><br>
+        <span>Nota Prova 1</span>
+        <input type="number" name="txnota1" id="txnota1"><br>
+        <span>Nota Prova 2</span>
+        <input type="number" name="txnota2" id="txnota2"><br>
+        <input class="button"  type="button" value="média" onclick="calcula_media_ponderada()"> <br>
+        <span id="media_pon">Nota Final:</span>
+    </div>
+    
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+    
+    <script>
+        function calcula_media_ponderada() {
+            let peso1 = 4
+            let peso2 = 6
+            let aluno = document.getElementById('matricula').value
+            let tnota1 = document.getElementById('txnota1')
+            let tnota2 = document.getElementById('txnota2')
+            let nota1 = parseFloat(tnota1.value)
+            let nota2 = parseFloat(tnota2.value)
+
+            function calculo_produto(n1, n2) {
+            let produto = n1 * n2
+            return produto;
+            }
+
+            let media = (calculo_produto(nota1, peso1)+ calculo_produto(nota2, peso2))/(peso1 + peso2);
+            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${media.toFixed(1)}</strong>`
+        }
+    </script>
+</body>
+</html>

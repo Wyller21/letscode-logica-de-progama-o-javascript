@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 04</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 2</h1>
+    <div>
+        <h2>Exercício 04</h2>
+        <p>Altere o programa do exercício 3 para que ele processe os dados de 2 alunos ao invés de apenas 1;</p>
+        <section>
+            <span>PRIMEIRO ALUNO</span><br>
+            <span>Matricula: </span>
+            <input type="number" name="matricula" id="matricula"><br>
+            <span>Nota Prova 1</span>
+            <input type="number" name="txnota1" id="txnota1"><br>
+            <span>Nota Prova 2</span>
+            <input type="number" name="txnota2" id="txnota2"><br>
+            <input class="button" type="button" value="média" onclick="calcula_media_ponderada()"> <br>
+            <span id="media_pon">Nota Final:</span>
+        </section>
+
+        <section>
+            <span>SEGUNDO ALUNO</span><br>
+            <span>Matricula: </span>
+            <input type="number" name="matriculaa2" id="matriculaa2"><br>
+            <span>Nota Prova 1</span>
+            <input type="number" name="txnota1a2" id="txnota1a2"><br>
+            <span>Nota Prova 2</span>
+            <input type="number" name="txnota2a2" id="txnota2a2"><br>
+            <input class="button" type="button" value="média" onclick="calcula_media_ponderadaa2()"> <br>
+            <span id="media_pona2">Nota Final:</span>
+        </section>
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+    
+
+    <script>
+        function calcula_media_ponderada() {
+            let peso1 = 4
+            let peso2 = 6
+            let aluno = document.getElementById('matricula').value
+            let tnota1 = document.getElementById('txnota1')
+            let tnota2 = document.getElementById('txnota2')
+            let nota1 = parseFloat(tnota1.value)
+            let nota2 = parseFloat(tnota2.value)
+            let mediapon = parseFloat(nota1*peso1 + nota2*peso2) / (peso1+peso2)
+            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${mediapon.toFixed(1)}</strong>`
+            }
+
+            function calcula_media_ponderadaa2() {
+            let peso1 = 4
+            let peso2 = 6
+            let alunoa2 = document.getElementById('matriculaa2').value
+            let tnota1a2 = document.getElementById('txnota1a2')
+            let tnota2a2 = document.getElementById('txnota2a2')
+            let nota1a2 = parseFloat(tnota1a2.value)
+            let nota2a2 = parseFloat(tnota2a2.value)
+            let mediapona2 = parseFloat(nota1a2*peso1 + nota2a2*peso2) / (peso1+peso2)
+            media_pona2.innerHTML = `A nota final do aluno ${alunoa2} é: <strong>${mediapona2.toFixed(1)}</strong>`
+            }
+    </script>
+</body>
+</html>

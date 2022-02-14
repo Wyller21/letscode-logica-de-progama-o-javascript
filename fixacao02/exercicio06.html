@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercício 06</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 2</h1>
+
+    <div>
+        <h2>Exercício 06</h2>
+        <p>Implemente, utilizando funções, um programa que receba do usuário o valor do salário bruto de um funcionário e imprima o valor com descontos de INSS, FGTS e Plano de Saúde. O programa deve utilizar uma função para calcular cada um dos descontos, sendo que estas funções devem receber o valor do salário bruto e retornar o valor a ser descontado. Os valores descontados devem ser:</p>
+        <ul>
+            <li>INSS: 10% do valor bruto;</li>
+            <li>FGTS: 8%;</li>
+            <li>Plano de Saúde: R$100,00.</li>
+        </ul>
+
+        <span>Insira o Salário Bruto:</span><br>
+        R$<input type="number" name="sal_bt" id="sal_bt">
+        <input class="button" type="button" value="calcular" onclick="descontos()"><br>
+        <span id="aguarde">Aguardando...</span>
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+    
+    <script>
+        function descontos() {
+            let sal_bt = document.getElementById("sal_bt")
+            let salario = parseFloat(sal_bt.value)
+            let inss = (salario / 100) * 10
+            let fgts = (salario / 100) * 8
+            let plano = 100
+            let sal_lq = salario - inss - fgts - plano
+            aguarde.innerHTML = `Desconto INSS: -R$${inss.toFixed(2)}<br>Desconto FGTS: -R$${fgts.toFixed(2)}<br> Desconto Saúde: -R$${plano.toFixed(2)}<br> <strong>Salário Liquido: R$${sal_lq.toFixed(2)}</strong>`
+            } 
+    </script>
+</body>
+</html>
