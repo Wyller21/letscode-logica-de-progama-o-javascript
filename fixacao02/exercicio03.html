@@ -28,21 +28,21 @@
     
     <script>
         function calcula_media_ponderada() {
-            let peso1 = 4
-            let peso2 = 6
-            let aluno = document.getElementById('matricula').value
-            let tnota1 = document.getElementById('txnota1')
-            let tnota2 = document.getElementById('txnota2')
-            let nota1 = parseFloat(tnota1.value)
-            let nota2 = parseFloat(tnota2.value)
+            let peso1 = 4;
+            let peso2 = 6;
+            let aluno = document.getElementById('matricula').value;
+            let tnota1 = document.getElementById('txnota1');
+            let tnota2 = document.getElementById('txnota2');
+            let nota1 = parseFloat(tnota1.value);
+            let nota2 = parseFloat(tnota2.value);
 
             function calculo_produto(n1, n2) {
-            let produto = n1 * n2
+            let produto = n1 * n2;
             return produto;
             }
 
             let media = (calculo_produto(nota1, peso1)+ calculo_produto(nota2, peso2))/(peso1 + peso2);
-            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${media.toFixed(1)}</strong>`
+            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${media.toFixed(1)}</strong>`;
         }
     </script>
 </body>

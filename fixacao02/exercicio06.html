@@ -31,13 +31,13 @@
     
     <script>
         function descontos() {
-            let sal_bt = document.getElementById("sal_bt")
-            let salario = parseFloat(sal_bt.value)
-            let inss = (salario / 100) * 10
-            let fgts = (salario / 100) * 8
-            let plano = 100
-            let sal_lq = salario - inss - fgts - plano
-            aguarde.innerHTML = `Desconto INSS: -R$${inss.toFixed(2)}<br>Desconto FGTS: -R$${fgts.toFixed(2)}<br> Desconto Saúde: -R$${plano.toFixed(2)}<br> <strong>Salário Liquido: R$${sal_lq.toFixed(2)}</strong>`
+            let sal_bt = document.getElementById("sal_bt");
+            let salario = parseFloat(sal_bt.value);
+            let inss = (salario / 100) * 10;
+            let fgts = (salario / 100) * 8;
+            let plano = 100;
+            let sal_lq = salario - inss - fgts - plano;
+            aguarde.innerHTML = `Desconto INSS: -R$${inss.toFixed(2)}<br>Desconto FGTS: -R$${fgts.toFixed(2)}<br> Desconto Saúde: -R$${plano.toFixed(2)}<br> <strong>Salário Liquido: R$${sal_lq.toFixed(2)}</strong>`;
             } 
     </script>
 </body>

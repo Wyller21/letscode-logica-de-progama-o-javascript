@@ -29,15 +29,15 @@
     
     <script>
         function calcula_media_ponderada() {
-            let peso1 = 4
-            let peso2 = 6
-            let aluno = document.getElementById('matricula').value
-            let tnota1 = document.getElementById('txnota1')
-            let tnota2 = document.getElementById('txnota2')
-            let nota1 = parseFloat(tnota1.value)
-            let nota2 = parseFloat(tnota2.value)
-            let mediapon = parseFloat(nota1*peso1 + nota2*peso2) / (peso1+peso2)
-            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${mediapon.toFixed(1)}</strong>`
+            let peso1 = 4;
+            let peso2 = 6;
+            let aluno = document.getElementById('matricula').value;
+            let tnota1 = document.getElementById('txnota1');
+            let tnota2 = document.getElementById('txnota2');
+            let nota1 = parseFloat(tnota1.value);
+            let nota2 = parseFloat(tnota2.value);
+            let mediapon = parseFloat(nota1*peso1 + nota2*peso2) / (peso1+peso2);
+            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${mediapon.toFixed(1)}</strong>`;
             }
     </script>
 </body>

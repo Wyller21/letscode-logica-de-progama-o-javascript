@@ -44,27 +44,27 @@
 
     <script>
         function calcula_media_ponderada() {
-            let peso1 = 4
-            let peso2 = 6
-            let aluno = document.getElementById('matricula').value
-            let tnota1 = document.getElementById('txnota1')
-            let tnota2 = document.getElementById('txnota2')
-            let nota1 = parseFloat(tnota1.value)
-            let nota2 = parseFloat(tnota2.value)
-            let mediapon = parseFloat(nota1*peso1 + nota2*peso2) / (peso1+peso2)
-            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${mediapon.toFixed(1)}</strong>`
+            let peso1 = 4;
+            let peso2 = 6;
+            let aluno = document.getElementById('matricula').value;
+            let tnota1 = document.getElementById('txnota1');
+            let tnota2 = document.getElementById('txnota2');
+            let nota1 = parseFloat(tnota1.value);
+            let nota2 = parseFloat(tnota2.value);
+            let mediapon = parseFloat(nota1*peso1 + nota2*peso2) / (peso1+peso2);
+            media_pon.innerHTML = `A nota final do aluno ${aluno} é: <strong>${mediapon.toFixed(1)}</strong>`;
             }
 
             function calcula_media_ponderadaa2() {
-            let peso1 = 4
-            let peso2 = 6
-            let alunoa2 = document.getElementById('matriculaa2').value
-            let tnota1a2 = document.getElementById('txnota1a2')
-            let tnota2a2 = document.getElementById('txnota2a2')
-            let nota1a2 = parseFloat(tnota1a2.value)
-            let nota2a2 = parseFloat(tnota2a2.value)
-            let mediapona2 = parseFloat(nota1a2*peso1 + nota2a2*peso2) / (peso1+peso2)
-            media_pona2.innerHTML = `A nota final do aluno ${alunoa2} é: <strong>${mediapona2.toFixed(1)}</strong>`
+            let peso1 = 4;
+            let peso2 = 6;
+            let alunoa2 = document.getElementById('matriculaa2').value;
+            let tnota1a2 = document.getElementById('txnota1a2');
+            let tnota2a2 = document.getElementById('txnota2a2');
+            let nota1a2 = parseFloat(tnota1a2.value);
+            let nota2a2 = parseFloat(tnota2a2.value);
+            let mediapona2 = parseFloat(nota1a2*peso1 + nota2a2*peso2) / (peso1+peso2);
+            media_pona2.innerHTML = `A nota final do aluno ${alunoa2} é: <strong>${mediapona2.toFixed(1)}</strong>`;
             }
     </script>
 </body>
