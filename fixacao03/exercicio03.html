@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 3</h1>
+
+    <h2>Exercício 03</h2>
+
+    <div>
+        <p>Faça um programa para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O programa deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.</p>
+        <p>Desconto do IR:</p>
+        <ul type="none">
+            <li>- Salário Bruto até 900 (inclusive) - isento;</li>
+            <li>- Salário Bruto até 1500 (inclusive) - desconto de 5%;</li>
+            <li>- Salário Bruto até 2500 (inclusive) - desconto de 10%;</li>
+            <li>- Salário Bruto acima de 2500 - desconto de 20%;</li> 
+        </ul>
+        <p>Imprima na tela as informações, dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a quantidade de hora é 220.</p>
+    </div>
+
+    <div>
+        <span>Informe o valor da hora: R$<input type="number" name="valor" id="valor"></span> <br>
+        <span>Informe a quantidade de horas: <input type="number" name="hora" id="hora">horas</span> <br>
+        <input type="button" value="calcular" onclick="calcula_salario()">
+        <ul type="none">
+            <li id="salbt"></li>
+            <li id="impr"></li>
+            <li id="impnss"></li>
+            <li id="fundogts"></li>
+            <li id="desc"></li>
+            <li id="sallq"></li>
+        </ul>
+
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function calcula_salario() {
+            let valor = document.getElementById("valor");
+            let val = parseFloat(valor.value);
+            let hora = document.getElementById("hora");
+            let hr = parseFloat(hora.value);
+            let salario_bruto = val * hr;
+            let inss = 10/100*salario_bruto;
+            let fgts = 11/100*salario_bruto;
+            if (salario_bruto <= 900) {
+                let ir = 0;
+                salbt.innerHTML = `Salário Bruto (${val}*${hr}) ........... R$${salario_bruto.toFixed(2)}`;
+                impr.innerHTML = `(-) IR (0%) ........................... R$${ir.toFixed(2)}`;
+                impnss.innerHTML = `(-) INSS (10%) ..................... R$${inss.toFixed(2)}`;
+                fundogts.innerHTML = `FGTS (11%) ......................... R$${fgts.toFixed(2)}`;
+                desc.innerHTML = `Total de descontos ................ R$${(ir+inss).toFixed(2)}`;
+                sallq.innerHTML = `Salário Liquido ..................... R$${salario_bruto-ir-inss.toFixed(2)}`;
+            } else if (salario_bruto <= 1500) {
+                let ir = 5/100*salario_bruto
+                salbt.innerHTML = `Salário Bruto (${val}*${hr}) ........... R$${salario_bruto.toFixed(2)}`;
+                impr.innerHTML = `(-) IR (5%) ........................... R$${ir.toFixed(2)}`;
+                impnss.innerHTML = `(-) INSS (10%) ..................... R$${inss.toFixed(2)}`;
+                fundogts.innerHTML = `FGTS (11%) ......................... R$${fgts.toFixed(2)}`;
+                desc.innerHTML = `Total de descontos ................ R$${(ir+inss).toFixed(2)}`;
+                sallq.innerHTML = `Salário Liquido ..................... R$${salario_bruto-ir-inss.toFixed(2)}`;
+            } else if (salario_bruto <= 2000) {
+                let ir = 10/100*salario_bruto
+                salbt.innerHTML = `Salário Bruto (${val}*${hr}) ........... R$${salario_bruto.toFixed(2)}`;
+                impr.innerHTML = `(-) IR (10%) ......................... R$${ir.toFixed(2)}`;
+                impnss.innerHTML = `(-) INSS (10%) ..................... R$${inss.toFixed(2)}`;
+                fundogts.innerHTML = `FGTS (11%) ......................... R$${fgts.toFixed(2)}`;
+                desc.innerHTML = `Total de descontos ................ R$${(ir+inss).toFixed(2)}`;
+                sallq.innerHTML = `Salário Liquido ..................... R$${salario_bruto-ir-inss.toFixed(2)}`; 
+            } else {
+                let ir = 20/100*salario_bruto
+                salbt.innerHTML = `Salário Bruto (${val}*${hr}) ........... R$${salario_bruto.toFixed(2)}`;
+                impr.innerHTML = `(-) IR (20%) ......................... R$${ir.toFixed(2)}`;
+                impnss.innerHTML = `(-) INSS (10%) ..................... R$${inss.toFixed(2)}`;
+                fundogts.innerHTML = `FGTS (11%) ......................... R$${fgts.toFixed(2)}`;
+                desc.innerHTML = `Total de descontos ................ R$${(ir+inss).toFixed(2)}`;
+                sallq.innerHTML = `Salário Liquido ..................... R$${salario_bruto-ir-inss.toFixed(2)}`; 
+            }
+        }
+    </script>
+</body>
+</html>

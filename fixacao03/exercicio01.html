@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 3</h1>
+
+    <h2>Exercício 01</h2>
+
+    <div>
+        <p>Faça um programa para a leitura de duas notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e apresentar:</p>
+        <ul type="none">
+            <li>-> A mensagem "Aprovado", se a média alcançada for maior ou igual a sete;</li>
+            <li>-> A mensagem "Reprovado", se a média for menor do que sete;</li>
+            <li>-> A mensagem "Aprovado com Distinção", se a média for igual a dez.</li>
+        </ul>
+    </div>
+
+    <div>
+        <p>
+            Insira as notas abaixo:
+        </p>
+        Nota 1: <input type="number" name="nota1" id="nota1"><br>
+        Nota 2: <input type="number" name="nota2" id="nota2"><br>
+        <input id="button" type="button" value="calcular" onclick="calcula_media()">
+    </div>
+    <span id="res"></span>
+    <span id="apr"></span>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function calcula_media () {
+            let nota1 = document.getElementById("nota1");
+            let nota2 = document.getElementById("nota2");
+            let n1 = parseFloat(nota1.value);
+            let n2 = parseFloat(nota2.value);
+            let media = (n1 + n2) / 2;
+            res.innerHTML = `Média <strong>${media.toFixed(1)}</strong>.`;
+            if (media == 10){
+                apr.innerHTML = "Aprovado com Distinção";
+            } else if (media >= 7) {
+                apr.innerHTML = "Aprovado";
+            } else {
+                apr.innerHTML = "Reprovado";
+            } 
+        }
+    </script>
+</body>
+</html>

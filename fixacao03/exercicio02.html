@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 3</h1>
+
+    <h2>Exercício 02</h2>
+
+    <div>
+        <p>As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contraram para desenvolver o programa que calculará os reajustes.</p>
+        <p>Faça um programa que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:</p>
+        <ul type="none">
+            <li>- salários até R$ 280,00 (incluindo) : aumento de 20%</li>
+            <li>- salários entre R$ 280,00 e R$ 700,00 : aumento de 15%</li>
+            <li>- salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%</li>
+            <li>- salários de R$ 1500,00 em diante : aumento de 5%</li>
+        </ul>
+        <p>Após o aumento ser realizado, informe na tela:</p>
+        <ul type="none">
+            <li>- o salário antes do reajuste;</li>
+            <li>- o percentual de aumento aplicado;</li>
+            <li>- o valor do aumento;</li>
+            <li>- o novo salário, após o aumento.</li>
+        </ul>
+    </div>
+
+    <div>
+        <p>Informe o salário:</p>
+        R$<input type="number" name="salario" id="salario">
+        <input type="button" value="calcular" onclick="calcula_salario()"><br>
+        <ul type="none">
+            <li id="res">
+            <li id="inicial">
+            <li id="valor">
+            <li id="novo">
+        </ul>
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function calcula_salario() {
+            let salario = document.getElementById('salario');
+            let sal = parseFloat(salario.value);
+            res.innerHTML = `Salário inicial: R$${sal.toFixed(2)}`
+            if (sal <= 280) {
+                let aum = 20/100;
+                inicial.innerHTML =  `Aumento aplicado: 20%`;
+                valor.innerHTML = `Valor do aumento: R$${(sal*aum).toFixed(2)}`;
+                novo.innerHTML = `Novo salário: R$${(sal+sal*aum).toFixed(2)}`;
+            } else if (sal <= 700){
+                let aum = 15/100;
+                inicial.innerHTML =  `Aumento aplicado: 15%`;
+                valor.innerHTML = `Valor do aumento: R$${(sal*aum).toFixed(2)}`;
+                novo.innerHTML = `Novo salário: R$${(sal+sal*aum).toFixed(2)}`;
+            } else if (sal <= 1500) {
+                let aum = 10/100;
+                inicial.innerHTML =  `Aumento aplicado: 10%`;
+                valor.innerHTML = `Valor do aumento: R$${(sal*aum).toFixed(2)}`;
+                novo.innerHTML = `Novo salário: R$${(sal+sal*aum).toFixed(2)}`;
+            } else {
+                let aum = 5/100;
+                inicial.innerHTML =  `Aumento aplicado: 5%`;
+                valor.innerHTML = `Valor do aumento: R$${(sal*aum).toFixed(2)}`;
+                novo.innerHTML = `Novo salário: R$${(sal+sal*aum).toFixed(2)}`;
+            }
+        }
+    </script>
+</body>
+</html>
