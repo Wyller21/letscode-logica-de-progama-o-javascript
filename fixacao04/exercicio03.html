@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 4</h1>
+
+    <h2>Exercício 03</h2>
+
+    <div>
+        <p>Percorra uma lista de números (estática ou preenchida pelo usuário) e mostre o menor e o maior números dessa lista.</p>
+    </div>
+
+    <div>
+        <p>Informe os números:
+            <input type="number" name="num" id="n1txt">
+            <input type="number" name="num" id="n2txt">
+            <input type="number" name="num" id="n3txt">
+            <input type="number" name="num" id="n4txt">
+            <input type="number" name="num" id="n5txt">
+        </p>
+        <p>
+            <input type="button" value="mostrar" onclick="maiormenor()">
+        </p>
+    </div>
+    <span id="res"></span>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function maiormenor() {
+            let num1 = document.getElementById('n1txt');
+            let num2 = document.getElementById('n2txt');
+            let num3 = document.getElementById('n3txt');
+            let num4 = document.getElementById('n4txt');
+            let num5 = document.getElementById('n5txt');
+
+            let n1 = parseInt(num1.value);
+            let n2 = parseInt(num2.value);
+            let n3 = parseInt(num3.value);
+            let n4 = parseInt(num4.value);
+            let n5 = parseInt(num5.value);
+
+            let arr = [n1, n2, n3, n4, n5];
+            let menor = Math.min(...arr);
+            let maior = Math.max(...arr);
+
+            res.innerHTML = `O maior número é o ${maior} e o menor é o ${menor}.`
+        }
+    </script>
+</body>
+</html>

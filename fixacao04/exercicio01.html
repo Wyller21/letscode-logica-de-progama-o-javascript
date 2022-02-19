@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 4</h1>
+
+    <h2>Exercício 01</h2>
+
+    <div>
+        <p>Faça um programa que imprima na tela apenas os números ímpares entre 1 e 50;</p>
+    </div>
+
+    <div>
+        <input id="button" type="button" value="Mostrar" onclick="contar()">
+    </div>
+    <span id="res" size="50"></span>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function contar() {
+            for (let num = 1; num < 50; num ++) {
+                if (num % 2 != 0) {
+                res.innerHTML += ` ${num} `;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
