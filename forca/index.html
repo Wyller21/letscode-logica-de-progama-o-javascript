@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Jogo da Forca</title>
+</head>
+<body>
+    <h1>Jogo da Forca</h1>
+    <div>
+        <input type="button" value="Nova Palavra" onclick="iniciar()">
+    </div>
+    <div>
+        <input type="text" id="letra" maxlength="1">
+        <input type="button" value="testar" onclick="jogar()">
+    </div>
+    <div>
+        <img src="assets/forca0.png" alt="forca0" id="imagem"></span>
+        <span id="sorteada"></span>
+    </div>
+    <div id="falhas">Letras Erradas: </div>
+    <div><input type="button" value="Jogar de Novo" onclick="reset()"></div>
+</body>
+
+<script>
+    let lista = ["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch","Doduo","Dodrio","Seel","Dewgong",
+	"Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","MrMime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"];
+    let palavra = lista[Math.floor(Math.random() * lista.length)];
+    let arraylinhas = [];
+    let letra = document.getElementById("letra");
+    let erros = 0;
+    let sorteada = document.getElementById("sorteada");
+
+    function iniciar() {
+        for(i = 0; i <palavra.length; i++){
+            arraylinhas = document.createElement("p" + i);
+            arraylinhas.innerText = "_";
+            sorteada.append(arraylinhas);
+        }
+    }
+
+    function jogar() {
+        if (palavra.includes(letra.value)) {
+            for (i = 0; i < palavra.length; i++){
+                if(palavra[i] == letra.value){
+                arraylinhas = sorteada.children[i];
+                arraylinhas.innerText = letra.value;
+                }
+            }
+        } else{
+            erros += 1;
+            falhas.innerText += ` ${letra.value}`;
+        }
+        letra.value = "";
+        imagem.innerHTML = forca();
+    }
+
+    function forca() {
+        if(erros === 0) {
+            return document.getElementById("imagem").src="assets/forca0.png";
+        } else if (erros === 1) {
+            return document.getElementById("imagem").src="assets/forca1.png";
+        } else if (erros === 2) {
+            return document.getElementById("imagem").src="assets/forca2.png";
+        } else if (erros === 3) {
+            return document.getElementById("imagem").src="assets/forca3.png";
+        } else if (erros === 4) {
+            return document.getElementById("imagem").src="assets/forca4.png";
+        } else if (erros === 5) {
+            return document.getElementById("imagem").src="assets/forca5.png";
+        } else {
+            return document.getElementById("imagem").src="assets/forca6.png";
+        }
+    }
+
+    function reset() {
+        window.location.reload()
+    }
+
+</script>
+</html>

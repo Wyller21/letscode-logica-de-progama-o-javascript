@@ -1,0 +1,21 @@
+body {
+    display: grid;
+    font: Arial, Verdana, Helvetica, sans-serif;
+    margin: 0.5;
+    margin-left: 15px;
+    font-size: 30pt;
+}
+
+p {
+   font-size: 1.2em;
+   text-align: justify;
+   text-indent: 1em;
+}
+
+span {
+   font-size: 30pt;
+}
+
+
+
+
