@@ -13,7 +13,7 @@
         <input type="button" value="Nova Palavra" onclick="iniciar()">
     </div>
     <div>
-        <input type="text" id="letra" maxlength="1">
+        <input type="text" id="letra" maxlength="1" oninput="up(event)" >
         <input type="button" value="testar" onclick="jogar()">
     </div>
     <div>
@@ -21,15 +21,17 @@
         <span id="sorteada"></span>
     </div>
     <div id="falhas">Letras Erradas: </div>
-    <div><input type="button" value="Jogar de Novo" onclick="reset()"></div>
+    <div><input type="button" value="Resetar" onclick="reset()"></div>
 </body>
 
 <script>
     let lista = ["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","MrMime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"];
     let palavra = lista[Math.floor(Math.random() * lista.length)];
+    palavra = palavra.toUpperCase();
     let arraylinhas = [];
     let letra = document.getElementById("letra");
     let erros = 0;
+    let acertos = 0;
     let sorteada = document.getElementById("sorteada");
 
     function iniciar() {
@@ -44,8 +46,9 @@
         if (palavra.includes(letra.value)) {
             for (i = 0; i < palavra.length; i++){
                 if(palavra[i] == letra.value){
-                arraylinhas = sorteada.children[i];
-                arraylinhas.innerText = letra.value;
+                    acertos += 1;
+                    arraylinhas = sorteada.children[i];
+                    arraylinhas.innerText = letra.value;
                 }
             }
         } else{
@@ -54,6 +57,17 @@
         }
         letra.value = "";
         imagem.innerHTML = forca();
+        if (erros === 7) {
+            alert("GAME OVER! VOCÊ PERDEU!");
+            if(confirm("Jogar Novamente?")){
+                reset();
+            }
+        }else if (acertos === palavra.length) {
+            alert("PARABÉNS! VOCÊ VENCEU!");
+            if(confirm("Jogar Novamente?")){
+                reset();
+            }
+        }
     }
 
     function forca() {
@@ -76,6 +90,14 @@
 
     function reset() {
         window.location.reload()
+    }
+
+    function up(l) {
+        let ss = l.target.selectionStart;
+        let se = l.target.selectionEnd;
+        l.target.value = l.target.value.toUpperCase();
+        l.target.selectionStart = ss;
+        l.target.selectionEnd = se;
     }
 
 </script>
