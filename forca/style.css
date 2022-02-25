@@ -14,6 +14,7 @@ p {
 
 #falhas {
    font-size: 2.3rem;
+   color: darkred;
 }
 
 input {
