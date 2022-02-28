@@ -10,19 +10,19 @@ h1 {
 }
 
 p {
-   font-size: 1.2rem;
+   font-size: 1.2em;
    text-align: justify;
-   text-indent: 1rem;
+   text-indent: 1em;
+}
+
+li {
+   font-size: 1.2em;
 }
 
 span {
-   font-size: 1.2rem;
+   font-size: 1.2em;
    text-align: justify;
-   margin-bottom: 1.5rem;
-}
-
-div {
-    font-size: 2rem;
+   margin-bottom: 1.5em;
 }
 
 .button {
@@ -33,13 +33,22 @@ div {
 }
 
 input {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     width: 110px;
     margin: 5px
 }
 
 section {
     margin-bottom: 20px;
+}
+
+select {
+    background-color: rgb(224, 226, 238);
+    font-size: 1.3rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+    padding: 10px;
+    margin-left: 100px;
 }
 
 a {

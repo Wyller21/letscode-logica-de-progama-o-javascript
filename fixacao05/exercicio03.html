@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 5</h1>
+
+    <h2>Exercício 03</h2>
+
+    <div>
+        <p>Crie um array de objetos (pelo menos 5 itens) e implemente map, filter e reduce que façam sentido para o contexto escolhido (300XP).</p>
+    </div>
+
+    <div>
+    <img src="./tabela.png" alt="tabela">
+    </div>
+
+    <div>
+       <p id="res"></p>
+    </div>
+
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        let alunos = [
+            {nome: 'Ana', sexo: 'f', nota1: 8, nota2: 9.5},
+            {nome: 'Antonio', sexo: 'm', nota1: 6, nota2: 5.5}, 
+            {nome: 'João', sexo: 'm', nota1: 9.5, nota2: 10}, 
+            {nome: 'José', sexo: 'm', nota1: 7, nota2: 7},
+            {nome: 'Maria', sexo: 'f', nota1: 8.5, nota2: 7},
+            ];
+        
+            alunos.map(function media(nome){
+                nome.media = ((nome.nota1 + nome.nota2)/2);
+            });
+            console.log("As médias de cada um são: ");
+            console.log(alunos);
+
+            let mulheres = alunos.filter((aluna) => {return aluna.sexo === "f"});
+            console.log("As mulheres são: ")
+            console.log(mulheres);
+
+            let homens = alunos.filter((aluno) => {return aluno.sexo === "m"});
+            console.log("Os homens são: ")
+            console.log(homens);
+
+            let media = alunos.reduce( (valor, aluno) => ((valor + aluno.media)), 0);
+            console.log("A média da turma é:");
+            console.log(media/5);
+
+    </script>
+</body>
+</html>

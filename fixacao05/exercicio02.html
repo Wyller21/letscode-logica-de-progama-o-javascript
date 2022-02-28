@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>ATIVIDADE DE FIXAÇÃO 5</h1>
+
+    <h2>Exercício 02</h2>
+
+    <div>
+        <p> Implemente a função de Fibonacci de forma recursiva (100XP); </p>
+    </div>
+    <div>
+        <p>Informe a posição na série: </p>
+        <input type="number" name="numero" id="numero"> 
+        <input type="button" value="Calcular" onclick="calcula()">
+        <p id="res"></p>
+    </div>
+    <footer>
+        <a href="index.html">VOLTAR</a>
+    </footer>
+
+    <script>
+        function calcula() {
+        let numero = document.getElementById("numero");
+        let num = parseInt(numero.value);
+        res.innerHTML = `Resultado = ${fibonacci(num)}`;
+        }
+        function fibonacci(n) {
+        if(n<=2)
+        return (n-1);
+        else
+        return ( fibonacci(n-1) + fibonacci(n-2) );
+        }
+    </script>
+</body>
+</html>
