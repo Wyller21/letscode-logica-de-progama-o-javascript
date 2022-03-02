@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Jogo da Forca 2.0</title>
+</head>
+<body>
+    <h1>Jogo da Forca 2.0</h1>
+    <div>
+        <input type="button" value="Iniciar" onclick="iniciar()" id="botaoinicio">
+    </div>
+    <div>
+        <input type="text" id="letra" maxlength="1" oninput="up(event)" >
+        <input type="button" value="Testar" onclick="jogar()">
+        <span id="pontos"></span>
+    </div>
+    <div>
+        <img src="assets/images/forca0.jpg" alt="forca0" id="imagem">  
+    </div>
+    <div>
+        <span id="sorteada"></span>
+    </div>
+    <div id="falhas">Letras Erradas: </div>
+    <div><input type="button" value="Resetar" onclick="reset()"></div>
+</body>
+
+<script>
+    let palavrasJson = ''; 
+    let palavra = '';
+    let segredo = '';
+    let posicao;
+    let arraylinhas = [];
+
+    fetch("/assets/newlist.json") 
+        .then(response => response.json()) 
+        .then(data => {palavrasJson = data})
+
+    function iniciar(){ 
+        palavra = palavrasJson[Math.floor(Math.random() * palavrasJson.length)];             
+        segredo = new Array(palavra.length)
+        for(i = 0; i <segredo.length; i++){
+            arraylinhas = document.createElement("p" + i);
+            arraylinhas.innerText = "_ ";
+            sorteada.append(arraylinhas);
+            
+        }
+        document.getElementById("botaoinicio").disabled = true;
+    }
+    
+    let letra = document.getElementById("letra");
+    let erros = 0;
+    let acertos = 0;
+    let sorteada = document.getElementById("sorteada");
+    let letraserradas = [];
+
+    function jogar() {
+        if (palavra.includes(letra.value)) {
+            for (i = 0; i < palavra.length; i++){
+                if(palavra[i] == letra.value){
+                    acertos += 1;
+                    arraylinhas = sorteada.children[i];
+                    arraylinhas.innerText = letra.value;
+                }
+            }
+        } else{
+            erros += 1;
+            if (!letraserradas.includes(letra.value)){
+                letraserradas.push(letra.value)
+                falhas.innerText = `Letras Erradas: ${letraserradas}`;
+            } else {
+                alert("Letra Repetida! Para de moscar! Ta morrendo à toa!")
+            }
+        }
+        letra.value = "";
+        imagem.innerHTML = forca();
+        pontos.innerHTML = ponto();
+        if (erros === 7) {
+            alert("GAME OVER! VOCÊ PERDEU!");
+            alert(`A palavra era ${palavra}!`)
+            if(confirm("Jogar Novamente?")){
+                reset();
+            }
+        }else if (acertos === palavra.length) {
+            alert(`${palavra}`)
+            alert("PARABÉNS! VOCÊ VENCEU!");
+            if(confirm("Jogar Novamente?")){
+                reset();
+            }
+        }
+        letra.focus();
+    }
+
+    let pontos = document.getElementById("pontos");
+    function forca() {
+        if(erros === 0) {
+            return document.getElementById("imagem").src="assets/images/forca0.jpg";
+        } else if (erros === 1) {
+            return document.getElementById("imagem").src="assets/images/forca1.jpg";
+        } else if (erros === 2) {
+            return document.getElementById("imagem").src="assets/images/forca2.jpg";
+        } else if (erros === 3) {
+            return document.getElementById("imagem").src="assets/images/forca3.jpg";
+        } else if (erros === 4) {
+            return document.getElementById("imagem").src="assets/images/forca4.jpg";
+        } else if (erros === 5) {
+            return document.getElementById("imagem").src="assets/images/forca5.jpg";
+        } else {
+            return document.getElementById("imagem").src="assets/images/forca6.jpg";
+        }
+    }
+
+    function ponto() {
+        if(erros === 0) {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 100"
+        } else if (erros === 1) {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 80"
+        } else if (erros === 2) {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 60"
+        } else if (erros === 3) {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 40"
+        } else if (erros === 4) {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 20"
+        } else if (erros === 5) {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 10"
+        } else {
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO 0 - Véi você é muito ruim!"
+        }
+    }
+
+    function reset() {
+        window.location.reload();
+    }
+
+    function up(l) {
+        let ss = l.target.selectionStart;
+        let se = l.target.selectionEnd;
+        l.target.value = l.target.value.toUpperCase();
+        l.target.selectionStart = ss;
+        l.target.selectionEnd = se;
+    }
+
+    const soletra = document.getElementById("letra");
+    soletra.addEventListener("keypress", function(e) {
+        const keyCode = (e.keycode ? e.keycode : e.wich);
+        if(e.keyCode > 47 && e.keyCode < 58) {
+            e.preventDefault();
+        }
+    })
+
+</script>
+</html>
