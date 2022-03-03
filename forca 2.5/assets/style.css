@@ -1,13 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato&display=swap');
 
 body {
-   font: Arial, Verdana, Helvetica, sans-serif;
+   font-family: 'Kaushan Script', cursive;
    margin: 0.5;
    margin-left: 15px;
    font-size: 20px;
    border-radius: 10px;
    padding: 15px;
-   width: 50%;
-   margin: auto;   
+   width: 60%;
+   margin: auto;
+   background-image: url(images/fundo2.jpg);
+   background-size: 100% ;
+}
+
+h1 {
+   color: rgba(54, 143, 162);
 }
 
 p {
@@ -18,20 +25,31 @@ p {
 
 #falhas {
    font-size: 2.3rem;
-   color: darkred;
+   color: orangered;
+}
+
+.botao {
+   font-family: 'Kaushan Script', cursive;
+   border-radius: 20%;
 }
 
 input {
    font-size: 1.5rem;
-   width: 110pt;
+   width: 150px;
    margin: 5px;
-   background-color: gainsboro;
+   background-color: rgba(220, 220, 220, 0);
    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+   border-radius: 20%;
+}
+
+#botaoinicio {
+   margin-right: 70px;
 }
 
 #letra{
-   width: 50pt;
+   width: 150px;
    text-align: center;
+   font-family: 'Kaushan Script', cursive;
 }
 
 #sorteada {
@@ -51,4 +69,10 @@ section {
 
 #pontos {
    font-size: 30px;
+}
+
+#imagem {
+   border-radius: 10%;
+   margin-top: 10px;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
 }

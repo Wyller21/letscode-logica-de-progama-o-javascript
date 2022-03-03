@@ -10,11 +10,13 @@
 <body>
     <h1>Jogo da Forca 2.0</h1>
     <div>
-        <input type="button" value="Iniciar" onclick="iniciar()" id="botaoinicio">
+        <input type="button" value="INICIAR" onclick="iniciar()" id="botaoinicio" class="botao">
     </div>
     <div>
         <input type="text" id="letra" maxlength="1" oninput="up(event)" >
-        <input type="button" value="Testar" onclick="jogar()">
+        <input type="button" value="TESTAR" onclick="jogar()" class="botao">
+    </div>
+    <div>
         <span id="pontos"></span>
     </div>
     <div>
@@ -24,7 +26,7 @@
         <span id="sorteada"></span>
     </div>
     <div id="falhas">Letras Erradas: </div>
-    <div><input type="button" value="Resetar" onclick="reset()"></div>
+    <div><input type="button" value="RESETAR" onclick="reset()" class="botao"></div>
 </body>
 
 <script>
@@ -114,19 +116,19 @@
 
     function ponto() {
         if(erros === 0) {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 100"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 100 - Bora começar!"
         } else if (erros === 1) {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 80"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 80 - Se errar de novo dou dica!"
         } else if (erros === 2) {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 60"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 60 - Gosta de geografia?"
         } else if (erros === 3) {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 40"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 40 - É um país!"
         } else if (erros === 4) {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 20"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 20 - PAÍS, CARA!!!"
         } else if (erros === 5) {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 10"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 10 - Você é estadunidense?"
         } else {
-            return document.getElementById("pontos").innerText = "PONTUAÇÃO 0 - Véi você é muito ruim!"
+            return document.getElementById("pontos").innerText = "PONTUAÇÃO: 0 - Véi, você é muito ruim!"
         }
     }
 
